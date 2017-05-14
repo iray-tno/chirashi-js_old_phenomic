@@ -18,6 +18,7 @@ export default (config = {}) => {
   const postcssPlugins = (webpackInstance) => {
     webpackInstance.addDependency(postcssPluginFile);
     delete require.cache[postcssPluginFile];
+    // eslint-disable-next-line global-require,import/no-dynamic-require
     return require(postcssPluginFile)(config);
   };
 
