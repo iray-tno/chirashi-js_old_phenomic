@@ -9,6 +9,12 @@
         "import/no-extraneous-dependencies": ["error", {
             "devDependencies": true,
             "optionalDependencies": false
+        }],
+        no-underscore-dangle: ["error", {
+            "allow": [
+                "__COLLECTION__",
+                "__INITIAL_STATE__"
+            ]
         }]
     }
 }
