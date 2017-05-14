@@ -1,6 +1,12 @@
+const styleLint = require('stylelint');
+
+const postcssCssnext = require('postcss-cssnext');
+const postcssReporter = require('postcss-reporter');
+const postcssBrowserReporter = require('postcss-browser-reporter');
+
 module.exports = config => [
-  require('stylelint')(),
-  require('postcss-cssnext')({
+  styleLint(),
+  postcssCssnext({
     browsers: 'last 2 versions',
     features: {
       customProperties: {
@@ -18,8 +24,8 @@ module.exports = config => [
       },
     },
   }),
-  require('postcss-reporter')(),
+  postcssReporter(),
   ...!config.production ? [
-    require('postcss-browser-reporter')(),
+    postcssBrowserReporter(),
   ] : [],
 ];
