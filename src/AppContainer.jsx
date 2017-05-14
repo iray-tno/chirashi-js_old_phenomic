@@ -24,4 +24,8 @@ AppContainer.propTypes = {
   children: PropTypes.node,
 };
 
+AppContainer.defaultTypes = {
+  children: null,
+};
+
 export default AppContainer;
