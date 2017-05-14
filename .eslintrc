@@ -1,4 +1,10 @@
 {
-	"root": true,
-	"extends": "airbnb"
+    "root": true,
+    "extends": "airbnb",
+    rules: {
+        "import/no-extraneous-dependencies": ["error", {
+            devDependencies: true,
+            optionalDependencies: false
+        }]
+    }
 }
