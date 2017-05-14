@@ -5,10 +5,10 @@
         "browser": true,
         "node": true
     },
-    rules: {
+    "rules": {
         "import/no-extraneous-dependencies": ["error", {
-            devDependencies: true,
-            optionalDependencies: false
+            "devDependencies": true,
+            "optionalDependencies": false
         }]
     }
 }
