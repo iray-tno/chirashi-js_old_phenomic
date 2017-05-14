@@ -4,9 +4,11 @@ import 'react-hot-loader/patch';
 import 'whatwg-fetch';
 import phenomicClient from 'phenomic/lib/client';
 
-import metadata from '../src/metadata.js';
-import routes from '../src/routes.js';
-import store from '../src/store.js';
+import mdHotUpdater from 'phenomic/lib/client/hot-md';
+
+import metadata from '../src/metadata';
+import routes from '../src/routes';
+import store from '../src/store';
 
 phenomicClient({ metadata, routes, store });
 
@@ -19,7 +21,6 @@ if (module.hot) {
   // hot load md
   module.hot.accept(mdContext.id, () => {
     mdContext = require.context('../content', true, /\.(md|markdown)$/);
-    const mdHotUpdater = require('phenomic/lib/client/hot-md').default;
     const requireUpdate = mdHotUpdater(mdContext, window.__COLLECTION__, store);
     mdContext.keys().forEach(requireUpdate);
   });
